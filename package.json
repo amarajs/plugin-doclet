@@ -1,0 +1,37 @@
+{
+  "name": "@amarajs/plugin-doclet",
+  "version": "0.1.1",
+  "description": "Server-side plugin to provide doclet args to features.",
+  "main": "dist/amara-plugin-doclet.js",
+  "umd:main": "dist/amara-plugin-doclet.umd.js",
+  "jsnext:main": "src/index.js",
+  "scripts": {
+    "build": "npm-run-all -p rollup:* -p minify:*",
+    "rollup:cjs": "rollup -c rollup.config.js -i src/index.js -f cjs -o dist/amara-plugin-doclet.js",
+    "rollup:umd": "rollup -c rollup.config.js -i src/index.js -f umd -o dist/amara-plugin-doclet.umd.js -n AmaraDoclet",
+    "minify:cjs": "uglifyjs dist/amara-plugin-doclet.js -cm toplevel -o dist/amara-plugin-doclet.min.js --source-map filename=dist/amara-plugin-doclet.min.js.map",
+    "minify:umd": "uglifyjs dist/amara-plugin-doclet.umd.js -cm toplevel -o dist/amara-plugin-doclet.umd.min.js --source-map filename=dist/amara-plugin-doclet.umd.min.js.map"
+  },
+  "keywords": [
+    "amarajs",
+    "server",
+    "plugin",
+    "doclet"
+  ],
+  "author": "Dan Barnes <amarajs.framework@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amarajs/plugin-doclet.git"
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "devDependencies": {
+    "npm-run-all": "^4.1.2",
+    "rollup": "^0.57.1",
+    "rollup-plugin-buble": "^0.15.0",
+    "uglify-js": "^3.3.21"
+  }
+}
